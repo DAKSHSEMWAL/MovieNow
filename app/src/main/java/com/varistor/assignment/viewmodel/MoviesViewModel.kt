@@ -9,19 +9,24 @@ import com.varistor.assignment.R
 import com.varistor.assignment.adapters.MovieListAdapter
 import com.varistor.assignment.model.Movie
 import com.varistor.assignment.model.Movies
-import com.varistor.assignment.model.NetworkStatus
 
 class MoviesViewModel : ViewModel() {
     private var movies: Movies? = null
     var adapter: MovieListAdapter? = null
         private set
     var selected: MutableLiveData<Movie?>? = null
+
     @JvmField
     var loading: ObservableInt? = null
+
     @JvmField
     var network: ObservableInt? = null
+
     @JvmField
     var showEmpty: ObservableInt? = null
+
+    @JvmField
+    var status: ObservableInt? = null
 
     @JvmField
     var showRecyclerView: ObservableInt? = null
@@ -43,11 +48,11 @@ class MoviesViewModel : ViewModel() {
         movies!!.fetchList()
     }
 
-    val breeds: MutableLiveData<List<Movie?>>
+    val movies_: MutableLiveData<List<Movie?>>
         get() = movies!!.movie
 
-    fun setMoviesInAdapter(breeds: List<Movie>?) {
-        adapter!!.setDogBreeds(breeds)
+    fun setMoviesInAdapter(movies_: List<Movie>?) {
+        adapter!!.setMovies(movies_)
         adapter!!.notifyDataSetChanged()
     }
 

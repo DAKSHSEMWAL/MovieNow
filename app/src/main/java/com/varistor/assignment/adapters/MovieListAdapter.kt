@@ -35,8 +35,8 @@ class MovieListAdapter(@param:LayoutRes private val layoutId: Int, private val v
         return getLayoutIdForPosition(position)
     }
 
-    fun setDogBreeds(breeds: List<Movie>?) {
-        this.movies = breeds
+    fun setMovies(movies_: List<Movie>?) {
+        this.movies = movies_
     }
 
     inner class GenericViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {

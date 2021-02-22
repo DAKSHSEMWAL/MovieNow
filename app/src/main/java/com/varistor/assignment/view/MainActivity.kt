@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity(), ConnectivityDetection.ConnectivityRece
     private fun setupListUpdate() {
         viewModel!!.loading!!.set(View.VISIBLE)
         viewModel!!.fetchList()
-        viewModel!!.breeds.observe(this, {
+        viewModel!!.movies_.observe(this, {
             viewModel!!.loading!!.set(View.GONE)
             if (it.isEmpty()) {
                 viewModel!!.showEmpty!!.set(View.VISIBLE)

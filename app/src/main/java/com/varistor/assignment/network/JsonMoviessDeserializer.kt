@@ -16,12 +16,12 @@ class JsonMoviessDeserializer : JsonDeserializer<Movies> {
         typeOfT: Type,
         context: JsonDeserializationContext
     ): Movies {
-        val breeds = Movies()
+        val movies = Movies()
         if (json.isJsonObject) {
             for ((key, value) in json.asJsonObject.entrySet()) {
                 if (key == "status") {
                     Log.d("Test", "Primitive: " + key + " = " + value.asString)
-                    breeds.status = value.asString
+                    movies.status = value.asString
                 } else if (key == "data") {
                     Log.d("Test", "Object: key: $key = $value")
                     val jsonObject = value.asJsonArray
@@ -32,11 +32,11 @@ class JsonMoviessDeserializer : JsonDeserializer<Movies> {
                         db.genre = jsonElement.asJsonObject["genre"].asString
                         db.url = jsonElement.asJsonObject["url"].asString
                         db.movie_year = jsonElement.asJsonObject["movie_year"].asString
-                        breeds.addBreed(db)
+                        movies.addBreed(db)
                     }
                 }
             }
         }
-        return breeds
+        return movies
     }
 }
