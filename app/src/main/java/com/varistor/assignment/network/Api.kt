@@ -15,6 +15,7 @@ object Api {
             if (field == null) {
                 val logging = HttpLoggingInterceptor()
                 logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
+                /*logging.setLevel(HttpLoggingInterceptor.Level.BASIC)*/
                 val client: OkHttpClient = OkHttpClient.Builder()
                     .addInterceptor(logging)
                     .build()
